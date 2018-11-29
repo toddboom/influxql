@@ -10,10 +10,10 @@ pipeline {
       steps {
         sh """
         rm -f $WORKSPACE/test-results.{log,xml}
-        mkdir -p /go/src/github.com/influxdata
-        cp -a $WORKSPACE /go/src/github.com/influxdata/influxql
+        mkdir -p /go/src/github.com/toddboom
+        cp -a $WORKSPACE /go/src/github.com/toddboom/influxql
 
-        cd /go/src/github.com/influxdata/influxql
+        cd /go/src/github.com/toddboom/influxql
         go get -v -t
         go test -v | tee $WORKSPACE/test-results.log
         """

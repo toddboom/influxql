@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/influxdata/influxql"
+	"github.com/toddboom/influxql"
 )
 
 func TestParseTree_Clone(t *testing.T) {
