@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/influxdata/influxql"
+	"github.com/toddboom/influxql"
 )
 
 // Ensure the parser can parse a multi-statement query.
@@ -1015,7 +1015,7 @@ func TestParser_ParseStatement(t *testing.T) {
 				},
 			},
 		},
-		// SELECT statement with group by and multi digit duration (prevent regression from #731://github.com/influxdata/influxdb/pull/7316)
+		// SELECT statement with group by and multi digit duration (prevent regression from #731://github.com/toddboom/influxdb/pull/7316)
 		{
 			s: fmt.Sprintf(`SELECT count(value) FROM cpu where time < '%s' group by time(500ms)`, now.UTC().Format(time.RFC3339Nano)),
 			stmt: &influxql.SelectStatement{
@@ -1491,8 +1491,8 @@ func TestParser_ParseStatement(t *testing.T) {
 			},
 		},
 
-		// See issues https://github.com/influxdata/influxdb/issues/1647
-		// and https://github.com/influxdata/influxdb/issues/4404
+		// See issues https://github.com/toddboom/influxdb/issues/1647
+		// and https://github.com/toddboom/influxdb/issues/4404
 		// DELETE statement
 		//{
 		//	s: `DELETE FROM myseries WHERE host = 'hosta.influxdb.org'`,
@@ -3198,8 +3198,8 @@ func TestParser_ParseStatement(t *testing.T) {
 		{s: `SELECT value = 2 FROM cpu`, err: `invalid operator = in SELECT clause at line 1, char 8; operator is intended for WHERE clause`},
 		{s: `SELECT s =~ /foo/ FROM cpu`, err: `invalid operator =~ in SELECT clause at line 1, char 8; operator is intended for WHERE clause`},
 		{s: `SELECT mean(value) FROM cpu FILL + value`, err: `fill must be a function call`},
-		// See issues https://github.com/influxdata/influxdb/issues/1647
-		// and https://github.com/influxdata/influxdb/issues/4404
+		// See issues https://github.com/toddboom/influxdb/issues/1647
+		// and https://github.com/toddboom/influxdb/issues/4404
 		//{s: `DELETE`, err: `found EOF, expected FROM at line 1, char 8`},
 		//{s: `DELETE FROM`, err: `found EOF, expected identifier at line 1, char 13`},
 		//{s: `DELETE FROM myseries WHERE`, err: `found EOF, expected identifier, string, number, bool at line 1, char 28`},
